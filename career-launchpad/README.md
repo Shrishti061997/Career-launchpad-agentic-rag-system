@@ -2,7 +2,7 @@
 
 A full-stack GenAI + RAG application that helps people across all careers find jobs, build portfolios, and network. Works for tech, healthcare, education, finance, trades, marketing, and every other field. Powered by NVIDIA NIM and Retrieval-Augmented Generation.
 
-
+🎥 Demo: [Watch here](https://www.youtube.com/watch?v=CQpSISysy3o)
 
 ## What it does
 
