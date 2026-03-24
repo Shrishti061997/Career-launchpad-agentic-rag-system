@@ -1,0 +1,42 @@
+services:
+  # Express server (also serves React build)
+  - type: web
+    name: career-launchpad-api
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: cd client && npm install && npm run build && cd ../server && npm install
+    startCommand: cd server && node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NVIDIA_BASE_URL
+        value: https://integrate.api.nvidia.com/v1
+      - key: NVIDIA_MODEL
+        value: meta/llama-3.3-70b-instruct
+      - key: RAG_SERVICE_URL
+        sync: false
+      - key: PORT
+        value: 3001
+
+  # Python RAG service
+  - type: web
+    name: career-launchpad-rag
+    runtime: python
+    plan: free
+    rootDir: rag-service
+    buildCommand: pip install -r requirements.txt && python seed_data.py
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NVIDIA_BASE_URL
+        value: https://integrate.api.nvidia.com/v1
+      - key: NVIDIA_MODEL
+        value: meta/llama-3.3-70b-instruct
+      - key: ADZUNA_APP_ID
+        sync: false
+      - key: ADZUNA_APP_KEY
+        sync: false

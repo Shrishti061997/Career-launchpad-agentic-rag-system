@@ -1,0 +1,25 @@
+{
+  "name": "career-launchpad-server",
+  "version": "1.0.0",
+  "description": "Backend API for AI Career Launchpad — powered by NVIDIA NIM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "openai": "^4.75.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "keywords": ["ai", "career", "nvidia", "nim", "rag", "portfolio", "networking"],
+  "license": "MIT"
+}
